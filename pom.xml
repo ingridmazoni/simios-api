@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.4.RELEASE</version>
+		<relativePath/> 
+	</parent>
+	<groupId>com.mercadolivre</groupId>
+	<artifactId>simios</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>simios</name>
+	<description>Teste Símios Mercado Livre </description>
+
+	<properties>
+			<java.version>11</java.version>
+		    <swagger-annotations-version>1.5.8</swagger-annotations-version>
+            <maven.compiler.source>1.8</maven.compiler.source>
+            <maven.compiler.target>1.8</maven.compiler.target>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+            <hibernate.version>5.2.12.Final</hibernate.version>
+    </properties>
+
+
+	<dependencies>
+	
+			 <!-- SPRING BOOT -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- using undertown https://docs.spring.io/spring-boot/docs/current/reference/html/howto-embedded-servlet-containers.html -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+
+        <!-- using spring data for JPA -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <exclusions>
+	            <exclusion>
+	                   <groupId>com.zaxxer</groupId>
+	                   <artifactId>HikariCP</artifactId>
+	            </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- spring managment -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        
+        <dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+
+        <!-- spring internationalization -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+         <!-- Spring Framework Caching Support -->
+          <dependency>
+                   <groupId>org.springframework.boot</groupId>
+                   <artifactId>spring-boot-starter-cache</artifactId>
+            </dependency>
+
+ 
+
+        <!-- spring aop -->
+
+        <dependency>
+             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+             <dependency>
+                   <groupId>org.aspectj</groupId>
+                   <artifactId>aspectjrt</artifactId>
+             </dependency>
+
+             <dependency>
+                   <groupId>org.aspectj</groupId>
+                   <artifactId>aspectjweaver</artifactId>
+             </dependency>
+
+ 
+
+        <!-- spring test -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+	            <exclusion>
+	                <groupId>org.junit.vintage</groupId>
+	                <artifactId>junit-vintage-engine</artifactId>
+	            </exclusion>
+        	</exclusions>
+        </dependency>
+
+        <!-- CDI -->
+
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <version>2.0</version>
+        </dependency>
+
+       
+      <!-- using swagger annotations in the generrated API -->
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>${swagger-annotations-version}</version>
+        </dependency>
+
+ 
+        <!-- MODEL MAPPER -->
+
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+
+        <!-- CPF/CNPJ -->
+
+        <dependency>
+            <groupId>br.com.caelum.stella</groupId>
+            <artifactId>caelum-stella-core</artifactId>
+            <version>2.1.2</version>
+        </dependency>
+
+ 
+
+        <!-- Hystrix -->
+
+        <dependency>
+            <groupId>com.netflix.hystrix</groupId>
+            <artifactId>hystrix-core</artifactId>
+            <version>1.5.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.netflix.hystrix</groupId>
+            <artifactId>hystrix-metrics-event-stream</artifactId>
+            <version>1.5.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.netflix.hystrix</groupId>
+            <artifactId>hystrix-servo-metrics-publisher</artifactId>
+            <version>1.5.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.netflix.hystrix</groupId>
+            <artifactId>hystrix-request-servlet</artifactId>
+            <version>1.5.12</version>
+        </dependency>
+
+        <!-- LOG STASH -->
+
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>4.11</version>
+        </dependency>
+
+        <!-- supporting test -->
+
+        <!-- MOCKITO -->
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- BDD - CUCUMBER -->
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java8</artifactId>
+            <version>1.2.5</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-spring</artifactId>
+            <version>1.2.5</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>1.2.4</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+                   <groupId>com.github.tomakehurst</groupId>
+                   <artifactId>wiremock-standalone</artifactId>
+                   <version>2.15.0</version>
+                   <scope>test</scope>
+        </dependency>
+
+       <dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+		    <groupId>com.h2database</groupId>
+		    <artifactId>h2</artifactId>
+		    <scope>runtime</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		 </dependency>
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-entitymanager</artifactId>
+		 </dependency>
+		
+		
+	
+	</dependencies>
+
+	<build>
+	
+	
+	  <plugins>
+            <!-- generating code -->
+              <plugin>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-codegen-maven-plugin</artifactId>
+                <version>2.2.3</version>
+                <executions>
+                  <execution>
+                        <id>Simios</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${basedir}/src/main/resources/api/simian.yaml</inputSpec>
+                            <language>spring</language>
+                            <apiPackage>br.com.mercadolivre.simios.api</apiPackage>
+                            <modelPackage>br.com.mercadolivre.simios.api.model</modelPackage>
+                            <generateSupportingFiles>false</generateSupportingFiles>
+                        </configuration>
+            </execution>
+               </executions>
+
+            </plugin>
+
+            <!-- Getting the jar -->
+
+                  
+             <plugin>
+                  <artifactId>maven-dependency-plugin</artifactId>
+                  <executions>
+                    <execution>
+                      <phase>initialize</phase>
+                      <goals>
+                        <goal>copy-dependencies</goal>
+                      </goals>
+                      <configuration>
+                        <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                      </configuration>
+                    </execution>
+                  </executions>
+              </plugin>
+
+                   <plugin>
+                         <groupId>org.apache.maven.plugins</groupId>
+                          <artifactId>maven-antrun-plugin</artifactId>
+                          <executions>
+                                <!-- removing undesired generated files -->
+                                <execution>
+                                       <phase>process-resources</phase>
+                                       <goals>
+                                             <goal>run</goal>
+                                       </goals>
+                                       <configuration>
+                                             <target>
+                                                   <echo message="Removing undesired swagger files..." />
+                                                   <delete>
+                                                         <fileset dir="${project.build.directory}/generated-sources/swagger"
+                                                                includes="**/*Controller.java" />
+                                                   </delete>
+                                             </target>
+                                       </configuration>
+                                </execution>
+						</executions>
+                  </plugin>
+
+        
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                              <source>${project.build.directory}/generated-sources/hibernate/</source>
+                              <source>${project.build.directory}/generated-sources/swagger/src/main/java/</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- integration tests -->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+            </plugin>
+
+            <!-- code coverage -->
+
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.6</version>
+                <executions>
+                    <execution>
+                        <id>default-prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- packaging spring boot -->
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                       <execution>
+                         <goals>
+                           <goal>repackage</goal>
+                         </goals>
+                         <configuration>
+                           <classifier>exec</classifier>
+                         </configuration>
+                       </execution>
+                     </executions>
+            </plugin>
+        </plugins>
+
+        <pluginManagement>
+            <plugins>
+                <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+                <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>
+                                            org.apache.maven.plugins
+                                        </groupId>
+                                        <artifactId>
+                                            maven-antrun-plugin
+                                        </artifactId>
+                                        <versionRange>
+                                            [1.8,)
+                                        </versionRange>
+                                        <goals>
+                                            <goal>run</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore></ignore>
+                                    </action>
+                                </pluginExecution>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>io.swagger</groupId>
+                                        <artifactId>
+                                            swagger-codegen-maven-plugin
+                                        </artifactId>
+                                        <versionRange>
+                                            [2.2.3,)
+                                        </versionRange>
+                                        <goals>
+                                            <goal>generate</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore></ignore>
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
+            </plugins>
+	 </pluginManagement>
+
+
+
+
+	</build>
+
+</project>
