@@ -27,9 +27,9 @@ public class SimiosApplication extends SpringBootServletInitializer {
 	    public DataSource dataSource(){
 	        DriverManagerDataSource dataSource = new DriverManagerDataSource();
 	        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-	        dataSource.setUrl("jdbc:mysql://localhost:3306/simios?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true");
-	        dataSource.setUsername("root");
-	        dataSource.setPassword("root");
+	        dataSource.setUrl("mysql://bac3345fbc7ff1:303150ff@us-cdbr-east-02.cleardb.com/heroku_106ba639f1f00da?reconnect=true");
+	        dataSource.setUsername("bac3345fbc7ff1");
+	        dataSource.setPassword("303150ff");
 	        
 	        return dataSource;  
 	 }
