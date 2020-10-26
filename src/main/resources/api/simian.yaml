@@ -12,15 +12,11 @@ info:
 host: "simios.swagger.io"
 basePath: "/simios"
 tags:
-- name: "Simian"
-  description: "Everything about Simian"
+- name: "Simios"
+  description: "Everything about Simios"
   externalDocs:
     description: "Find out more"
     url: "http://swagger.io"
-
-externalDocs:
-  description: "Find out more about Swagger"
-  url: "http://swagger.io"
 
 schemes:
 - "https"
@@ -29,7 +25,7 @@ paths:
   /simian:
     post:
       tags:
-      - "Simian"
+      - "Simios"
       summary: "Detects Valid DNA Sequence"
       description: ""
       operationId: "isSimian"
@@ -40,15 +36,16 @@ paths:
       parameters:
       - in: "body"
         name: "dna"
-        description: ""
+        description: "sequencia de dna"
         required: true
         schema:
-          type: array
-          items:
-            $ref: '#/definitions/Dna'
+          $ref: '#/definitions/Dna'
+           
       responses:
         "200":
           description: "successful operation"
+          schema:
+              $ref: "#/definitions/ResponseSimian"  
         "403":
           description: "HTTP 403-FORBIDDEN"
               
@@ -57,7 +54,7 @@ paths:
   /stats:
     get:
       tags:
-      - "Simian"
+      - "Simios"
       summary: "Population statistics of Simios and Humans"
       description: ""
       operationId: "stats"
@@ -78,20 +75,36 @@ definitions:
     type: "object"
     properties:
       count_mutant_dna:
-        type: "number"
-        format: "double"
+        type: "integer"
+        format: "int64"       
       count_human_dna:
         type: "integer"
-        format: "int32"
+        format: "int64"
       ratio:
-        type: "integer"
-        format: "int32"  
-      
+        type: "number"
+        
+        
   Dna:
-    type: "object"
+    type: object
     properties:
       dna:
-        type: "string"
+        type: array
+        items:
+          type: string
+      
+  ResponseSimian:
+    type: "object"
+    properties:
+      isSimian:
+        type: "boolean"
+      sequenciaDna:
+         $ref: "#/definitions/Dna"
+      
+
+  
+    
+      
+         
       
   
  
