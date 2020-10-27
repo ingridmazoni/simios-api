@@ -2,6 +2,7 @@ package br.com.mercadolivre.simian;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -22,14 +23,15 @@ import org.springframework.web.servlet.LocaleResolver;
 @ComponentScan
 public class SimiosApplication extends SpringBootServletInitializer {
 		
+	@Value("${spring.datasource.url}")
+	private String dbUrl;
 	
 	  @Bean
 	    public DataSource dataSource(){
 	        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-	        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-	        dataSource.setUrl("jdbc:mysql://localhost:3306/simios?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true");
-	        dataSource.setUsername("root");
-	        dataSource.setPassword("root");
+	        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+	        dataSource.setUrl(dbUrl);
+	       
 	        
 	        return dataSource;  
 	 }
