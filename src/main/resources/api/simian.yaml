@@ -22,7 +22,7 @@ schemes:
 - "https"
 - "http"
 paths:
-  /simian:
+  simian:
     post:
       tags:
       - "Simios"
@@ -51,7 +51,7 @@ paths:
               
       
    
-  /stats:
+  stats:
     get:
       tags:
       - "Simios"
