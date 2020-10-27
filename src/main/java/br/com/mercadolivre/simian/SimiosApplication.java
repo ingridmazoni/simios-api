@@ -29,9 +29,11 @@ public class SimiosApplication extends SpringBootServletInitializer {
 	  @Bean
 	    public DataSource dataSource(){
 	        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+
 	        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 	        dataSource.setUrl(dbUrl);
 	       
+
 	        
 	        return dataSource;  
 	 }
