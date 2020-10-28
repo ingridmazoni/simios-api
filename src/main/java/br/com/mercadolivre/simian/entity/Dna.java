@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -25,12 +26,12 @@ import br.com.mercadolivre.simian.enums.TipoDna;
 	    uniqueConstraints =  @UniqueConstraint(
 	        name = "uk_sequencias_dna",
 	        columnNames = {
-	            "sequencia_Dna1",
-	            "sequencia_Dna2",
-	            "sequencia_Dna3",
-	            "sequencia_Dna4",
-	            "sequencia_Dna5",
-	            "sequencia_Dna6"
+	            "sequencia_dna1",
+	            "sequencia_dna2",
+	            "sequencia_dna3",
+	            "sequencia_dna4",
+	            "sequencia_dna5",
+	            "sequencia_dna6"
 	        }
 	    )
 	)
@@ -41,45 +42,46 @@ public class Dna implements Serializable {
 
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long idDna;
 	
 	@NotBlank
 	@NotNull
 	@Size(min=1, max=6)
-	@Column(name="sequencia_Dna1", nullable=false, length = 6)
+	@Column(name="sequencia_dna1", nullable=false, length = 6)
 	private String sequenciaDna1;
 	
 	@NotBlank
 	@NotNull
 	@Size(min=1, max=6)
-	@Column(name="sequencia_Dna2", nullable=false, length = 6)
+	@Column(name="sequencia_dna2", nullable=false, length = 6)
 	private String sequenciaDna2;
 	
 	@NotBlank
 	@NotNull
 	@Size(min=1, max=6)
-	@Column(name="sequencia_Dna3", nullable=false, length = 6)
+	@Column(name="sequencia_dna3", nullable=false, length = 6)
 	private String sequenciaDna3;
 	
 	@NotBlank
 	@NotNull
 	@Size(min=1, max=6)
-	@Column(name="sequencia_Dna4", nullable=false, length = 6)
+	@Column(name="sequencia_dna4", nullable=false, length = 6)
 	private String sequenciaDna4;
 	
 	@NotBlank
 	@NotNull
 	@Size(min=1, max=6)
-	@Column(name="sequencia_Dna5", nullable=false, length = 6)
+	@Column(name="sequencia_dna5", nullable=false, length = 6)
 	private String sequenciaDna5;
 	
 	@NotBlank
 	@NotNull
 	@Size(min=1, max=6)
-	@Column(name="sequencia_Dna6", nullable=false, length = 6)
+	@Column(name="sequencia_dna6", nullable=false, length = 6)
 	private String sequenciaDna6;
 	
-	@Column(name = "tipo_Dna" , nullable=false)
+	@Column(name = "tipo_dna" , nullable=false)
 	@Enumerated(EnumType.STRING)
 	private TipoDna tipoDna;
 	
