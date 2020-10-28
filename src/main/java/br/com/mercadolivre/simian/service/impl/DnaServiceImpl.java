@@ -7,7 +7,6 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import antlr.StringUtils;
 import br.com.mercadolivre.simian.enums.TipoDna;
 import  br.com.mercadolivre.simian.repository.DnaRepository;
 import br.com.mercadolivre.simian.service.DnaService;

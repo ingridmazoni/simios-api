@@ -1,22 +1,24 @@
 swagger: "2.0"
 info:
-  description: ""
+  description: "API para verificação de DNA dos Simios"
   version: "1.0.0"
   title: "Simios"
   termsOfService: "http://swagger.io/terms/"
   contact:
     email: "ingridmazoni@outlook.com"
+    name: "Ingrid Mazoni"
+    url: "http://www.ingridmazoni.com"
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "simios.swagger.io"
+host: "localhost:8080"
 basePath: "/simios"
 tags:
 - name: "Simios"
-  description: "Everything about Simios"
+  description: "Tudo sobre simios"
   externalDocs:
-    description: "Find out more"
-    url: "http://swagger.io"
+    description: "leia mais sobre na documentação"
+    url: "localhost:8080/v2/api-docs"
 
 schemes:
 - "https"
@@ -83,7 +85,6 @@ definitions:
       ratio:
         type: "number"
         
-        
   Dna:
     type: object
     properties:
@@ -101,7 +102,9 @@ definitions:
          $ref: "#/definitions/Dna"
       
 
-  
+externalDocs:
+  description: "Tudo sobre Simios"
+  url: "localhost:8080/swagger-ui.html"  
     
       
          

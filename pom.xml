@@ -16,7 +16,7 @@
 
 	<properties>
 			<java.version>11</java.version>
-		    <swagger-annotations-version>1.5.8</swagger-annotations-version>
+		    <swagger-annotations-version>1.6.2</swagger-annotations-version>
             <maven.compiler.source>1.8</maven.compiler.source>
             <maven.compiler.target>1.8</maven.compiler.target>
             <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -31,12 +31,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <exclusions>
+           <!--  <exclusions>
                 <exclusion>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-tomcat</artifactId>
                 </exclusion>
-            </exclusions>
+            </exclusions> -->
         </dependency>
 
         <!-- using undertown https://docs.spring.io/spring-boot/docs/current/reference/html/howto-embedded-servlet-containers.html -->
@@ -51,12 +51,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <exclusions>
+            <!-- <exclusions>
 	            <exclusion>
 	                   <groupId>com.zaxxer</groupId>
 	                   <artifactId>HikariCP</artifactId>
 	            </exclusion>
-            </exclusions>
+            </exclusions> -->
         </dependency>
 
         <!-- spring managment -->
@@ -65,6 +65,24 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        
+        <dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger-ui</artifactId>
+		    <version>3.0.0</version>
+		</dependency>
+			
+		<dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger2</artifactId>
+		    <version>3.0.0</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-boot-starter</artifactId>
+		    <version>3.0.0</version>
+		</dependency>
         
         <dependency>
 		    <groupId>org.springframework.boot</groupId>

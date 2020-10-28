@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -20,7 +19,6 @@ import org.springframework.web.servlet.LocaleResolver;
 @ConfigurationProperties
 @EnableTransactionManagement
 @EnableJpaRepositories
-@ComponentScan
 public class SimiosApplication extends SpringBootServletInitializer {
 		
 	@Value("${spring.datasource.url}")
@@ -30,7 +28,7 @@ public class SimiosApplication extends SpringBootServletInitializer {
 	    public DataSource dataSource(){
 	        DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-	        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+	        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 	        dataSource.setUrl(dbUrl);
 	       
 
