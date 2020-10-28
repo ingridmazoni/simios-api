@@ -43,6 +43,7 @@ public class Dna implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@Column(name="id_dna")
 	private Long idDna;
 	
 	@NotBlank
