@@ -33,15 +33,15 @@ public class SimianController implements SimianApi {
 		responseHeaders.setLocation(location);
 		
 		boolean validateDna = simianService.validateDna(dna.getDna());
-		String tipoDna = "SIMIAN";
 		
-		if(validateDna && TipoDna.SIMIAN.name().equals(tipoDna)) {
+		
+		if(validateDna && simianService.isSimian(dna.getDna())) {
 			
 			ResponseSimian responseSimian = simianService.saveDna(dna.getDna() , TipoDna.SIMIAN);
 							
 			return new ResponseEntity<ResponseSimian>(responseSimian , responseHeaders,HttpStatus.OK);
 		}
-		else if (validateDna && TipoDna.HUMANO.name().equals(tipoDna)) {
+		else if (validateDna && simianService.isSimian(dna.getDna())==false) {
 			
 			ResponseSimian responseSimian = simianService.saveDna(dna.getDna() , TipoDna.HUMANO);
 			

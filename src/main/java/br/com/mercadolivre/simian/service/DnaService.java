@@ -10,5 +10,7 @@ public interface DnaService {
 	public ResponseSimian saveDna(List<String> dna , TipoDna tipoDna);
 	
 	public boolean validateDna(List<String> dna);
+	
+	public boolean isSimian (List<String> dna);
 
 }
