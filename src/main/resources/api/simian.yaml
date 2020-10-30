@@ -7,24 +7,27 @@ info:
   contact:
     email: "ingridmazoni@outlook.com"
     name: "Ingrid Mazoni"
-    url: "http://www.ingridmazoni.com"
+    url: "https://www.linkedin.com/in/ingridmazoni/"
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "localhost:8080"
-basePath: "/simios"
+host: "simios-api-production.herokuapp.com"
+basePath: "/"
 tags:
 - name: "Simios"
   description: "Tudo sobre simios"
   externalDocs:
     description: "leia mais sobre na documentação"
-    url: "localhost:8080/v2/api-docs"
+    url: "simios-api-production.herokuapp.com/v2/api-docs"
+externalDocs:
+  description: "Acesse o readme em github.com/ingridmazoni/simios-api"
+  url: "https://github.com/ingridmazoni/simios-api"    
 
 schemes:
 - "https"
 - "http"
 paths:
-  simian:
+  /simian:
     post:
       tags:
       - "Simios"
@@ -53,7 +56,7 @@ paths:
               
       
    
-  stats:
+  /stats:
     get:
       tags:
       - "Simios"
@@ -102,9 +105,7 @@ definitions:
          $ref: "#/definitions/Dna"
       
 
-externalDocs:
-  description: "Tudo sobre Simios"
-  url: "localhost:8080/swagger-ui.html"  
+
     
       
          
