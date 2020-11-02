@@ -11,17 +11,17 @@ info:
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "https://simios-api-production.herokuapp.com"
-basePath: "/swagger-ui.html"
+host: "simios-api-production.herokuapp.com"
+basePath: "/"
 tags:
 - name: "Simios"
   description: "Tudo sobre simios"
   externalDocs:
     description: "leia mais sobre na documentação"
-    url: "https://github.com/ingridmazoni/simios-api"
+    url: "simios-api-production.herokuapp.com/v2/api-docs"
 externalDocs:
   description: "Acesse o readme em github.com/ingridmazoni/simios-api"
-  url: "/v2/api-docs"    
+  url: "simios-api-production.herokuapp.com/v2/api-docs"   
 
 schemes:
 - "https"
