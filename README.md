@@ -21,12 +21,15 @@ Caso queira executar as apis em algum programa API client , como o postman por e
 
 
 curl -X POST "https://simios-api-production.herokuapp.com/simian"
+
+
 curl -X GET "https://simios-api-production.herokuapp.com/stats"
 
 
 Para mais detalhes sobre a API acesse os links abaixo
 
 https://simios-api-production.herokuapp.com/
+
 https://ingridmazoni.github.io/simios-api/
 
 
