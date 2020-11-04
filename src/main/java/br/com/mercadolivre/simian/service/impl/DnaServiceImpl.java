@@ -6,9 +6,14 @@ import java.util.regex.Pattern;
 
 import javax.inject.Inject;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import br.com.mercadolivre.simian.enums.TipoDna;
+import br.com.mercadolivre.simian.exception.ApiErrorException;
 import  br.com.mercadolivre.simian.repository.DnaRepository;
 import br.com.mercadolivre.simian.service.DnaService;
 import br.com.mercadolivre.simios.api.model.ResponseSimian;
@@ -52,25 +57,22 @@ public class DnaServiceImpl implements DnaService {
 	}
 
 	@Override
-	public boolean validateDna(List<String> dna) {
+	public boolean validateDna(List<String> dna){
 		
-		for(String d : dna) {
-									
-			if(d==null || !Pattern.matches("[ATCG]{6}", d) || d.isEmpty() || d.isEmpty() ) {
-				return false;
+			for(String d : dna) {
+				
+				if(d==null || !Pattern.matches("[ATCG]{6}", d) || d.isEmpty() || d.isEmpty() ) {
+					return false;
+				}
 			}
-		}
-		
-		
+				
 		return true;
 	}
 	
 	@Override
 	public boolean isSimian (List<String> dna) {
 		
-		dna.addAll(carregaMatrizDna(dna));
-		
-		for (String d:dna) {
+		for (String d:carregaMatrizDna(dna)) {
 			if(Pattern.compile("[A]{4}").matcher(d).find()
 					||Pattern.compile("[T]{4}").matcher(d).find()
 					||Pattern.compile("[C]{4}").matcher(d).find()
@@ -103,7 +105,9 @@ public class DnaServiceImpl implements DnaService {
 		
 		System.out.println(matriz.toString());
 		
-		return verificaMatrizDna(matrizDna);
+		dna.addAll(verificaMatrizDna(matrizDna));
+		
+		return dna;
 		
 		
 	}
@@ -142,7 +146,6 @@ public class DnaServiceImpl implements DnaService {
 		 
 		System.out.println("\rDiagonais Secundarias");
 		dnaDiagonaisSecundarias.stream().forEach(list->{
-			
 			System.out.println(list);
 		});
 			

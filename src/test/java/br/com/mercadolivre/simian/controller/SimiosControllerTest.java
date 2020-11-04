@@ -59,7 +59,7 @@ public class SimiosControllerTest {
 		  
 		  }
 		 
-	
+			 
 		  @Test
 		  @Order(2) 
 		  public void testApiDnaSimios() throws Exception {
@@ -83,7 +83,33 @@ public class SimiosControllerTest {
 		
 		  
 		  }
+		  
+
+		  @Test
+		  @Order(3) 
+		  public void testApiDnaInvalido() throws Exception {
+			  
+			  List<String> listDna = new ArrayList<String>();
+			  listDna.add("CTGAGA");
+			  listDna.add("CTGAGC");
+			  listDna.add("TATTGT");
+			  listDna.add("AGAGGR");
+			  listDna.add("CCCCTA");
+			  listDna.add("TCACTG");
+						  
+			  Dna dna=new Dna();
+			  dna.dna(listDna);
+			  
+		  ResponseEntity<ResponseSimian> responseEntity =
+		  this.restTemplate.postForEntity("http://localhost:" + port + "/simian" , dna, ResponseSimian.class);
+		  
+		  assertEquals(403, responseEntity.getStatusCodeValue()); 
+		}
 		 
 	
+		  
+
+		
+		 
 	  
 }

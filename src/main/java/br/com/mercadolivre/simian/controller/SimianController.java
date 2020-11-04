@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.com.mercadolivre.simian.enums.TipoDna;
+import br.com.mercadolivre.simian.exception.ApiErrorException;
 import br.com.mercadolivre.simian.service.DnaService;
 import br.com.mercadolivre.simios.api.SimianApi;
 import br.com.mercadolivre.simios.api.model.Dna;
